@@ -97,7 +97,7 @@ class NotificationListActivity : AppCompatActivity(), AdapterOnClickListener {
 
                     db.notificationDao().deleteItems(listOf(data["id"] as Int))
 
-                    notificationList = db.notificationDao().findByPackageName(data["packageName"].toString())
+                    notificationList = db.notificationDao().findByPackageName(data["packageName"].toString()).asReversed()
 
                     idsToDelete = notificationList.map { item -> item.id }
 
